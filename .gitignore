@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+
+# dependent packages
+node_modules
+jspm_packages
+
+/photos
+
+# Editors
+.idea
+.vscode
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

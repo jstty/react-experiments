@@ -1,0 +1,31 @@
+{
+  "name": "experiments",
+  "version": "0.1.0",
+  "author": {
+    "name": "Joseph E. Sutton",
+    "email": "joe@jstty.com",
+    "url": "http://www.jstty.com"
+  },
+  "maintainers": [
+    {
+      "name": "jstty",
+      "email": "joe@jstty.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "npm run fe.install && npm run server.install",
+    "prestart": "npm run fe.build",
+    "start": "node app",
+    "server.install": "cd server && npm install",
+    "fe.install": "cd frontend && npm install",
+    "fe.build": "cd frontend && npm run build",
+    "fe.watch": "cd frontend && npm run start",
+    "clean": "cd frontend && rm -rf node_modules && rm -rf dist && cd ../server && rm -rf node_modules && cd .. && rm -rf node_modules"
+  },
+  "engines": {
+    "node": ">=6.0"
+  }
+}
