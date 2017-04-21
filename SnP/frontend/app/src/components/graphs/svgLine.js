@@ -39,13 +39,13 @@ export default class SvgLine extends React.Component {
         data.forEach(function (d) {
             // normalize data to 0.0 -> 1.0
             d.date = (d.date - dateRange.min)/(dateRange.max - dateRange.min);
-            // flip data to 1.0 -> 0.0, graph rendered top/left
-            d.date = 1.0 - d.date;
             // streach to width
             d.date *= w;
 
             // normalize data to 0.0 -> 1.0
             d.value = (d.value - valueRange.min)/(valueRange.max - valueRange.min);
+            // flip data to 1.0 -> 0.0, graph rendered top/left
+            d.value = 1.0 - d.value;
             // streach to width
             d.value *= h;
         });

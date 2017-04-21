@@ -6,7 +6,7 @@ module.exports = {
         client: 'sqlite3',
         connection: {
           database: 'stats_db',
-          filename: ":memory:"
+          filename: "./stats/stats.sqldb"
         },
         pool: { min: 1, max: 1 },
         useNullAsDefault: true

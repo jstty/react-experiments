@@ -13,8 +13,14 @@ class DataStore {
         this.Q = $q;
         this.config = $config;
 
-        // create knex using config
-        this.db = knex(this.config.db);
+        // delete "stats.db" file, so it's clean each boot (in the real app SQLite would be replaced with a better DB)
+        let dbFile = path.resolve(this.config.db.connection.filename);
+        try {
+            fs.unlinkSync(dbFile);
+        }
+        catch(err) {
+            // this is ok, file doesn't exist...
+        }
     }
 
     $postStartInit() {
@@ -24,6 +30,9 @@ class DataStore {
             quote: '"'
         });
         data = this._processData(data);
+
+        // create knex using config
+        this.db = knex(this.config.db);
 
         let self = this;
         return co(function *(){
